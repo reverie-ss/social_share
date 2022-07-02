@@ -39,7 +39,6 @@ class SocialSharePlugin:FlutterPlugin, MethodCallHandler, ActivityAware {
             val stickerImage: String? = call.argument("stickerImage")
             val backgroundImage: String? = call.argument("backgroundImage")
 
-            val backgroundTopColor: String? = call.argument("backgroundTopColor")
             val backgroundBottomColor: String? = call.argument("backgroundBottomColor")
             val attributionURL: String? = call.argument("attributionURL")
             val file =  File(activeContext!!.cacheDir,stickerImage)
@@ -57,7 +56,6 @@ class SocialSharePlugin:FlutterPlugin, MethodCallHandler, ActivityAware {
                 intent.setDataAndType(backgroundImageFile,"image/*")
             }
             intent.putExtra("content_url", attributionURL)
-            intent.putExtra("top_background_color", backgroundTopColor)
             intent.putExtra("bottom_background_color", backgroundBottomColor)
             Log.d("", activity!!.toString())
             // Instantiate activity and verify it will resolve implicit intent
